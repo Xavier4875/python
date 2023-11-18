@@ -1,14 +1,14 @@
 class Television:
+    MIN_VOLUME = 0
+    MAX_VOLUME = 2
+    MIN_CHANNEL = 0
+    MAX_CHANNEL = 3
     def __init__(self) -> None:
         """Creates the class variables and sets their default values"""
-        self.Min_Volume = 0
-        self.Max_Volume = 2
-        self.Min_Channel = 0
-        self.Max_Channel = 3
         self.status = False
         self.muted = False
-        self.volume = self.Min_Volume
-        self.channel = self.Min_Channel
+        self.volume = self.MIN_VOLUME
+        self.channel = self.MIN_CHANNEL
 
     def power(self) -> None:
         """Checks whether the TV is on or off and changes its status to the opposite"""
@@ -27,7 +27,7 @@ class Television:
             if self.muted == False:
                 self.volume = original_volume
             else:
-                self.volume = self.Min_Volume
+                self.volume = self.MIN_VOLUME
 
     def channel_up(self) -> None:
         """Increases the channel number by one.
@@ -36,8 +36,8 @@ class Television:
         if self.status == False:
             pass
         else:
-            if self.channel == self.Max_Channel:
-                self.channel = self.Min_Channel
+            if self.channel == self.MAX_CHANNEL:
+                self.channel = self.MIN_CHANNEL
             else:
                 self.channel += 1
 
@@ -48,8 +48,8 @@ class Television:
         if self.status == False:
             pass
         else:
-            if self.channel == self.Min_Channel:
-                self.channel = self.Max_Channel
+            if self.channel == self.MIN_CHANNEL:
+                self.channel = self.MAX_CHANNEL
             else:
                 self.channel -= 1
 
@@ -65,7 +65,7 @@ class Television:
                 self.muted = False
                 self.volume = 2
             else:
-                if self.volume == self.Max_Volume:
+                if self.volume == self.MAX_VOLUME:
                     pass
                 else:
                     self.volume += 1
@@ -82,7 +82,7 @@ class Television:
                 self.muted = False
                 self.volume = 1
             else:
-                if self.volume == self.Min_Volume:
+                if self.volume == self.MIN_VOLUME:
                     pass
                 else:
                     self.volume -= 1
